@@ -54,7 +54,11 @@ export function scanText(text, file = '<text>') {
   const out = [];
   const lines = text.split(/\r?\n/);
   lines.forEach((line, i) => {
-    for (const p of PATTERNS) if (p.re.test(line)) out.push({ file, line: i + 1, kind: p.kind });
+    for (const p of PATTERNS) {
+      const m = line.match(p.re);
+      // `value` is kept in memory only, to honour intended-public entries; it is never printed.
+      if (m) out.push({ file, line: i + 1, kind: p.kind, value: m[0].trim() });
+    }
   });
   return out;
 }
@@ -74,9 +78,18 @@ export function scanDir(root) {
   return out;
 }
 
+/**
+ * Allow-list lines, `#` starts a comment:
+ *   relative/path:line:kind          accept one finding at one location
+ *   public <kind> <value>            accept an identifier the owner WANTS public, anywhere
+ *                                    (e.g. a contact email for collaboration)
+ */
 export function applyAllow(findings, allowText) {
-  const allowed = new Set(String(allowText || '').split(/\r?\n/).map((l) => l.replace(/#.*$/, '').trim()).filter(Boolean));
-  return findings.filter((f) => !allowed.has(`${f.file}:${f.line}:${f.kind}`));
+  const lines = String(allowText || '').split(/\r?\n/).map((l) => l.replace(/#.*$/, '').trim()).filter(Boolean);
+  const located = new Set(lines.filter((l) => !l.startsWith('public ')));
+  const publicValues = new Set(lines.filter((l) => l.startsWith('public ')).map((l) => l.split(/\s+/).slice(1, 3).join(' ').toLowerCase()));
+  return findings.filter((f) => !located.has(`${f.file}:${f.line}:${f.kind}`)
+    && !publicValues.has(`${f.kind} ${String(f.value || '').toLowerCase()}`));
 }
 
 const DIRECT = process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('prepublish-scan.mjs');
@@ -104,6 +117,12 @@ if (DIRECT && process.argv.includes('--test')) {
   check('ssh command', kinds('ssh ' + 'root' + '@' + 'my-vps').includes('ssh-command'));
   check('plain prose is clean', scanText('A measurement made through a single path measures the path.').length === 0);
   check('allow-list removes an accepted finding', applyAllow([{ file: 'a.md', line: 3, kind: 'ipv4' }], 'a.md:3:ipv4  # doc example').length === 0);
+  const contact = 'owner' + '@' + 'example.net';
+  const other = 'someone' + '@' + 'example.net';
+  const found = scanText(`Contact: ${contact}\nLeaked: ${other}`, 'README.md');
+  const kept = applyAllow(found, `public email ${contact}  # owner wants collaborators to write`);
+  check('intended-public email is accepted anywhere', !kept.some((f) => f.line === 1));
+  check('any other email is still flagged', kept.some((f) => f.line === 2 && f.kind === 'email'));
   console.log(`\n${ok} passed · ${bad} failed`);
   process.exit(bad ? 1 : 0);
 }

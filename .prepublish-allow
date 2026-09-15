@@ -1,0 +1,3 @@
+# Identifiers that are public ON PURPOSE. Used by: node tools/prepublish-scan.mjs . --allow .prepublish-allow
+# Format: `public <kind> <value>` (anywhere) or `path:line:kind` (one location). Always give a reason.
+public email fahmiwol@gmail.com  # the author's chosen contact for collaboration (decision 2026-09-16)

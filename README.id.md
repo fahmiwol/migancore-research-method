@@ -93,6 +93,9 @@ masuk akal.
   jalur server, dan jalur Windows pribadi, dan **tidak pernah mencetak nilai yang
   ditemukan** (hanya `berkas:baris:jenis`). Tanpa dependensi. Pada pemindaian pertamanya ia
   menangkap penulisnya sendiri: sebuah fixture uji memuat alamat MAC mesin sungguhan.
+  Pengenal yang memang *ingin* publik (misalnya email kontak) ditulis di
+  [`.prepublish-allow`](.prepublish-allow) sebagai `public <jenis> <nilai>`, masing-masing
+  dengan alasannya.
 - Provider Lab Quran — [`fahmiwol/sidix/providers/quran-lab`](https://github.com/fahmiwol/sidix/tree/main/providers/quran-lab).
 
 ## Yang sengaja tidak ada di sini
@@ -100,6 +103,14 @@ masuk akal.
 Bobot model, dataset privat, detail infrastruktur, dan apa pun yang dilisensikan oleh pihak
 ketiga. Teks Al-Qur'an, terjemahan, dan tafsir adalah milik penerbitnya dan tidak pernah
 direproduksi di sini; Quran Lab hanya menerbitkan karya interpretasinya sendiri.
+
+## Kontak dan kolaborasi
+
+**Fahmi Ghani** — fahmiwol@gmail.com · GitHub [@fahmiwol](https://github.com/fahmiwol)
+
+Terbuka untuk kolaborasi, upaya replikasi, kritik terhadap metode, dan tinjauan kajian Lab
+Quran oleh ahli yang kompeten. Laporan tentang apa pun di repositori ini yang ternyata keliru
+juga sangat diterima.
 
 ## Lisensi dan sitasi
 

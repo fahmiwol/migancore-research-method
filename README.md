@@ -92,7 +92,9 @@ ever produced. Each one produced numbers that looked plausible.
   directory public. It finds credentials, email addresses, IP and MAC addresses, server
   paths and personal Windows paths, and **never prints a matched value** (only
   `file:line:kind`). No dependencies. On its first run it caught its own author: a test
-  fixture contained a real machine's MAC address.
+  fixture contained a real machine's MAC address. Identifiers you *want* public (such as
+  a contact email) go in [`.prepublish-allow`](.prepublish-allow) as
+  `public <kind> <value>`, each with a reason.
 - The Quran Lab provider — [`fahmiwol/sidix/providers/quran-lab`](https://github.com/fahmiwol/sidix/tree/main/providers/quran-lab).
 
 ## What is deliberately not here
@@ -100,6 +102,14 @@ ever produced. Each one produced numbers that looked plausible.
 Model weights, private datasets, infrastructure details, and anything licensed by a
 third party. Quranic text, translations and tafsir belong to their publishers and are
 never reproduced here; the Quran Lab publishes only its own interpretive work.
+
+## Contact and collaboration
+
+**Fahmi Ghani** — fahmiwol@gmail.com · GitHub [@fahmiwol](https://github.com/fahmiwol)
+
+Collaboration, replication attempts, criticism of the method, and review of the Quran Lab
+studies by qualified scholars are all welcome. So are reports of anything in this
+repository that turns out to be wrong.
 
 ## License and citation
 
