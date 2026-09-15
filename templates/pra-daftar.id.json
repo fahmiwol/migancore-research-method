@@ -1,0 +1,80 @@
+{
+  "episode": "ID-PENDEK",
+  "judul": "Satu kalimat: apa yang sedang diuji",
+  "dikunci": "YYYY-MM-DDTHH:MMZ — diambil dari jam, bukan dari ingatan",
+  "buktiKunci": "commit <hash> pada <waktu>; cap waktu berkas bukan bukti",
+  "dikunciSebelum": "apa yang BELUM ada ketika ini dikunci (mis. belum ada berkas hasil, belum ada jejak)",
+
+  "hipotesis": [
+    {
+      "id": "H1",
+      "pernyataan": "",
+      "jikaBenar": "apa yang akan Anda lakukan",
+      "jikaSalah": "apa yang akan Anda simpulkan dan lakukan",
+      "jikaSalahDenganCaraLain": "cara kedua untuk salah (mis. memperbaiki X tetapi merusak Y)"
+    }
+  ],
+
+  "populasi": {
+    "termasuk": "",
+    "dikecualikan": "",
+    "aturanBerhenti": "n minimum per kelompok; dihitung SEKALI, ketika pertama kali terpenuhi; tanpa mengintip"
+  },
+
+  "metrik": {
+    "utama": "",
+    "kebenaranDasar": "dari mana kebenaran berasal — tidak boleh dari instrumen yang sedang diuji",
+    "kendaliLajuDasar": "precision / perbandingan berstrata / cakupan yang dicocokkan — bukan laju mentah"
+  },
+
+  "ambang": {
+    "MENANG": "",
+    "TIDAK_MENANG": "",
+    "GUGUR": "",
+    "cekBisaDimenangkan": {
+      "langitLangit": "bisakah metriknya mencapai nilai MENANG sama sekali?",
+      "lantai": "adakah lantai perilaku sungguhan di bawah ambang? (C55)",
+      "granularitas": "dengan n kontrol, satu kejadian = 100/n poin"
+    }
+  },
+
+  "antiUji": {
+    "aturan": "ditulis dari bentuk bahasa atau dari tugasnya, tidak pernah dari data",
+    "wajibMemicu": [],
+    "wajibTetapDiam": []
+  },
+
+  "perancu": [
+    { "nama": "subpopulasi / jenis soal", "kendali": "uji berstrata" },
+    { "nama": "label berderau", "kendali": "adjudikasi buta oleh pihak yang tidak ikut merancang hipotesis" },
+    { "nama": "panjang keluaran", "kendali": "aturan berbasis panjang saja pada laju alarm palsu yang sama" },
+    { "nama": "butir berulang", "kendali": "laporan tingkat klaster" }
+  ],
+
+  "prakiraan": {
+    "penulis": { "MENANG": 0.0, "TIDAK_MENANG": 0.0, "GUGUR": 0.0 },
+    "peninjauEksternal": { "MENANG": 0.0, "TIDAK_MENANG": 0.0, "GUGUR": 0.0 },
+    "penskoran": "Brier score setelah vonis"
+  },
+
+  "dilarang": [
+    "Menyetel instrumen sampai lolos.",
+    "Menambah butir setelah membaca data.",
+    "Menghitung metrik sebelum aturan berhenti terpenuhi."
+  ],
+
+  "keterbatasanYangDiakui": [],
+
+  "amandemen_YYYY-MM-DD": {
+    "ditulis": "YYYY-MM-DDTHH:MMZ — sebelum berkas data pertama",
+    "asal": "siapa mengkritik apa",
+    "hanyaLebihKetat": [],
+    "tidakDiadopsi": { "apa": "", "alasan": "" }
+  },
+
+  "vonis": {
+    "hasil": "BELUM DIJALANKAN",
+    "keadaan": "belum",
+    "tanggal": null
+  }
+}

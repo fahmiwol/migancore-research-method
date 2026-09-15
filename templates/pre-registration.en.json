@@ -1,0 +1,80 @@
+{
+  "episode": "SHORT-ID",
+  "title": "One sentence: what is being tested",
+  "locked": "YYYY-MM-DDTHH:MMZ — taken from the clock, not from memory",
+  "lockProof": "commit <hash> at <time>; a file timestamp is not proof",
+  "lockedBefore": "what did NOT exist yet when this was locked (e.g. no result file, no trace)",
+
+  "hypotheses": [
+    {
+      "id": "H1",
+      "statement": "",
+      "ifTrue": "what you will do",
+      "ifWrong": "what you will conclude and do",
+      "ifWrongInAnotherWay": "the second way to be wrong (e.g. improves X but destroys Y)"
+    }
+  ],
+
+  "population": {
+    "included": "",
+    "excluded": "",
+    "stoppingRule": "minimum n per group; computed ONCE, when first met; no peeking"
+  },
+
+  "metrics": {
+    "primary": "",
+    "groundTruth": "where truth comes from — must not be the instrument under test",
+    "baseRateControl": "precision / stratified comparison / matched coverage — not a raw rate"
+  },
+
+  "thresholds": {
+    "WIN": "",
+    "NOT_WIN": "",
+    "FAIL": "",
+    "winnabilityCheck": {
+      "ceiling": "can the metric reach the WIN value at all?",
+      "floor": "is there a floor of genuine behaviour below the threshold? (C55)",
+      "granularity": "with n controls, one event = 100/n points"
+    }
+  },
+
+  "antiTests": {
+    "rule": "written from the form of language or the task, never from the data",
+    "mustTrigger": [],
+    "mustStaySilent": []
+  },
+
+  "confounds": [
+    { "name": "subpopulation / question type", "control": "stratified test" },
+    { "name": "noisy labels", "control": "blinded adjudication by someone who did not design the hypothesis" },
+    { "name": "output length", "control": "length-only rule at the same false-alarm rate" },
+    { "name": "repeated items", "control": "cluster-level report" }
+  ],
+
+  "forecasts": {
+    "author": { "WIN": 0.0, "NOT_WIN": 0.0, "FAIL": 0.0 },
+    "externalReviewer": { "WIN": 0.0, "NOT_WIN": 0.0, "FAIL": 0.0 },
+    "scoring": "Brier score after the verdict"
+  },
+
+  "mustNotDo": [
+    "Tune the instrument until it passes.",
+    "Add items after reading the data.",
+    "Compute the metric before the stopping rule is met."
+  ],
+
+  "acknowledgedLimitations": [],
+
+  "amendment_YYYY-MM-DD": {
+    "written": "YYYY-MM-DDTHH:MMZ — before the first data file",
+    "origin": "who criticised what",
+    "stricterOnly": [],
+    "notAdopted": { "what": "", "why": "" }
+  },
+
+  "verdict": {
+    "result": "NOT RUN",
+    "state": "pending",
+    "date": null
+  }
+}

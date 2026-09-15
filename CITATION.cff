@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this research method, please cite it as below."
+title: "MiganCore Research Method: pre-registration, measurement integrity, and honest records for small-lab language model research"
+authors:
+  - family-names: "Ghani"
+    given-names: "Fahmi"
+version: "1.0.0"
+date-released: "2026-09-16"
+license: MIT
+repository-code: "https://github.com/fahmiwol/migancore-research-method"
+keywords:
+  - pre-registration
+  - measurement integrity
+  - hallucination
+  - abstention
+  - small language models
+  - Indonesian
+  - research methodology
