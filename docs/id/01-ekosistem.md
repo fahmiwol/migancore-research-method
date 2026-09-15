@@ -39,9 +39,11 @@ di mana hubungan-hubungan itu masih berupa klaim, bukan hasil pengukuran.
 ```
 
 - **SIDIX → MiganCore: asal-usul sebagai rekayasa.** SIDIX yang pertama kali mengubah *sanad*
-  dan *tabayyun* menjadi kode. MiganCore memakai ulang gagasan itu untuk model-modelnya: setiap
-  model yang dilatih memiliki rantai asal-usul (model dasar, data, run pelatihan, evaluasi), dan
-  perintah status melaporkan apakah setiap mata rantainya utuh atau lemah.
+  dan *tabayyun* menjadi kode. MiganCore memakai ulang gagasan itu untuk model-modelnya: sejauh
+  ini enam model yang dilatih membawa berkas *sanad*, yaitu rantai langkah yang menghasilkannya,
+  dari data dan pelatihan sampai pengemasan dan evaluasi. Perintah status melaporkan setiap
+  rantai sebagai bersambung atau menghitung mata rantainya yang lemah. Pada September 2026 tiga
+  rantai bersambung dan tiga punya mata lemah; belum semua model yang dilatih punya rantai.
 - **Quran Lab → MiganCore: hipotesis, tidak pernah bukti.** Prinsip-prinsip Lab seperti
   *verifikasi sebelum bertindak*, *tangga dari dugaan menuju kepastian*, dan *kegagalan ada di
   evaluator, bukan di sensor* membentuk gerbang-gerbang MiganCore dan urutan kerjanya (evaluasi

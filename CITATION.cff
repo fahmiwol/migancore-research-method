@@ -5,7 +5,7 @@ authors:
   - family-names: "Ghani"
     given-names: "Fahmi"
     email: "fahmiwol@gmail.com"
-version: "1.0.0"
+version: "1.0.1"
 date-released: "2026-09-16"
 license: MIT
 repository-code: "https://github.com/fahmiwol/migancore-research-method"

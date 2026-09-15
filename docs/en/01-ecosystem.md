@@ -38,9 +38,11 @@ than measurements.
 ```
 
 - **SIDIX → MiganCore: provenance as engineering.** SIDIX first turned *sanad* and
-  *tabayyun* into code. MiganCore reuses the idea for its models: every trained model has a
-  provenance chain (base, data, training run, evaluation), and the status command reports
-  whether each link is intact or weak.
+  *tabayyun* into code. MiganCore reuses the idea for its models: six trained models so far
+  carry a *sanad* file, the chain of steps that produced them from data and training through
+  packaging to evaluation, and the status command reports each chain as intact or counts its
+  weak links. In September 2026 three chains were intact and three had weak links; not every
+  trained model has a chain yet.
 - **Quran Lab → MiganCore: hypotheses, never evidence.** Lab principles such as
   *verify before acting*, *the ladder from conjecture to certainty*, and *failure lives in
   the evaluator, not the sensors* shaped MiganCore's gates and its order of work
