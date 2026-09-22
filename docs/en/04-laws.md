@@ -40,6 +40,8 @@ process. Titles are translated from Indonesian.
 | **C57** | Raw error rates cannot compare the quality of two detectors; control for base rate. |
 | **C58** | One catch-all error handler hides stacked defects; fixing the first is the only way to reveal the second. |
 | **C59** | Data that is not stored is a hypothesis that can never be tested. |
+| **C60** | A signal that fires on correct answers as often as on wrong ones is not a signal; it is a style. |
+| **C61** | The benefit of an abstention gate scales with the baseline fabrication rate; "the gate's effect" is not a constant. |
 
 ## Patterns across the laws
 

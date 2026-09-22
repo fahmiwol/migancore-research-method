@@ -40,6 +40,8 @@ dan proses. Judul-judulnya adalah judul asli berbahasa Indonesia.
 | **C57** | Laju kesalahan MENTAH tidak bisa membandingkan MUTU dua pendeteksi; kendalikan laju-dasar. |
 | **C58** | Satu penangkap galat yang menelan semuanya menyembunyikan cacat yang BERTUMPUK; memperbaiki yang pertama adalah satu-satunya cara untuk menyingkap yang kedua. |
 | **C59** | Data yang tidak disimpan adalah hipotesis yang tidak pernah bisa diuji. |
+| **C60** | Sinyal yang menyala pada jawaban benar sesering pada jawaban salah bukan sinyal, melainkan gaya. |
+| **C61** | Manfaat gerbang abstensi sebanding dengan kadar mengarang dasarnya; "efek gerbang" bukan konstanta. |
 
 ## Pola lintas hukum
 

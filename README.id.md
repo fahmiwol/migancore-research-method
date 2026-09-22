@@ -69,7 +69,7 @@ masuk akal.
 | Ekosistem: MiganCore, SIDIX, Quran Lab, OMIGA | [docs/en/01-ecosystem.md](docs/en/01-ecosystem.md) | [docs/id/01-ekosistem.md](docs/id/01-ekosistem.md) |
 | Metode riset | [docs/en/02-method.md](docs/en/02-method.md) | [docs/id/02-metode.md](docs/id/02-metode.md) |
 | Integritas pengukuran | [docs/en/03-measurement-integrity.md](docs/en/03-measurement-integrity.md) | [docs/id/03-integritas-pengukuran.md](docs/id/03-integritas-pengukuran.md) |
-| Hukum (C22, C30–C59) | [docs/en/04-laws.md](docs/en/04-laws.md) | [docs/id/04-hukum.md](docs/id/04-hukum.md) |
+| Hukum (C22, C30–C61) | [docs/en/04-laws.md](docs/en/04-laws.md) | [docs/id/04-hukum.md](docs/id/04-hukum.md) |
 | Halusinasi: sebuah taksonomi dan sebuah eksperimen yang sedang berjalan | [docs/en/05-hallucination.md](docs/en/05-hallucination.md) | [docs/id/05-halusinasi.md](docs/id/05-halusinasi.md) |
 | Ilham berpagar: ilmu kognitif dan Quran Lab | [docs/en/06-inspiration-with-guardrails.md](docs/en/06-inspiration-with-guardrails.md) | [docs/id/06-ilham-berpagar.md](docs/id/06-ilham-berpagar.md) |
 | Studi kasus, dengan angka | [docs/en/07-case-studies.md](docs/en/07-case-studies.md) | [docs/id/07-studi-kasus.md](docs/id/07-studi-kasus.md) |
@@ -78,13 +78,39 @@ masuk akal.
 
 ## Status
 
-- Pengukuran jangkar model dasar (A3) sudah memiliki 3 dari 5 putaran sah: 53,6 %, 64,3 %, dan
-  46,4 % MENGARANG pada soal yang menuntut abstensi (rerata 54,8 %). Putaran 4–5 sedang
-  berjalan.
-- Sebuah eksperimen pra-daftar tentang jejak nalar (H-RAGU) sudah dikunci dan menunggu data.
-  Vonisnya akan ditambahkan di sini, entah berhasil atau gagal.
-- Model yang saat ini disajikan adalah `migancore:0.14`. Dua kandidat sesudahnya ditolak
-  promosinya oleh gerbang mereka sendiri.
+*Diperbarui 23 September 2026. Setiap angka di bawah bisa direproduksi dari berkas pra-daftar
+dan berkas hasil mentah di repo kerja privat; vonisnya diterapkan secara mekanis, bukan dipilih.*
+
+- **Jangkar model dasar (A3) SELESAI: 5 dari 5 putaran sah** — 53,6 %, 64,3 %, 46,4 %, 57,1 %,
+  60,7 % MENGARANG pada soal yang menuntut abstensi (rerata **56,42 %**, CI 95 % 47,88–64,96).
+  Over-refusal **0 % di kelimanya**: model dasar tidak menolak, ia mengarang.
+- **Syarat bibit yang seharusnya disuapi jangkar itu ternyata tidak bisa digagalkan.** Ambang
+  mekanisnya meloloskan lima dari lima model terukur, jadi syarat itu dinyatakan **TIDAK
+  TERDEFINISI** selama tujuh hari alih-alih dilonggarkan diam-diam, lalu diganti aturan
+  bertingkat yang dipra-daftarkan.
+- **Gerbang abstensi lolos ambang yang dikunci sebelum data.** Delapan pasangan putaran dengan
+  urutan berselang-seling: MENGARANG **52,2 % → 33,9 %**, selisih rata **18,31 poin**
+  (CI 95 % 6,59–30,03), over-refusal bergerbang 1,6 %, akurasi fakta justru *naik*. Skor Brier
+  ramalannya 0,335 terhadap 0,667 untuk tebakan seragam.
+- **…dan eksperimen yang sama membantah asumsi rancangannya sendiri.** Memasangkan justru
+  *memperbesar* varians, karena manfaat gerbang sebanding dengan berapa banyak MENGARANG yang
+  tersedia untuk dibuang (r = +0,942). Di bawah ~45 % kadar dasar, gerbang tidak berbuat apa-apa.
+  Ini menjadi [C61](docs/id/04-hukum.md), dan artinya "perbaiki model" dan "pasang gerbang"
+  mengambil dari jatah yang sama, bukan menumpuk.
+- **Dua pertanyaan yang selama ini tercampur kini dipisah dan diberi nama.** Apakah *bobotnya*
+  memenuhi (kolam putaran polos saja)? `migancore:0.14` — **tidak**, 49,99 %. Apakah *sistem
+  yang dilayankan* memenuhi (konfigurasi apa pun yang menang)? `0.14` + gerbang — **ya**,
+  33,92 %. Mengutip yang satu sebagai yang lain adalah klaim salah, bukan penyederhanaan.
+- **Satu hasil yang tidak nyaman, disebut justru karena ia milik kami.** Model tertua proyek ini
+  — generasi pertamanya — satu-satunya yang bobotnya memenuhi tingkat lebih ketat (24,55 %).
+  Pada sumbu kejujuran, empat bulan latihan berikutnya menggerakkan model yang dilayankan ke
+  belakang. Klaim ini tidak merambat ke sumbu lain yang memang belum punya ambang.
+- Eksperimen pra-daftar tentang jejak nalar (H-RAGU) kembali **TIDAK MENENTUKAN**: model memang
+  menuliskan keraguannya saat mengarang (0,94), tetapi ia menuliskannya hampir sesering itu pada
+  jawaban fakta yang BENAR (0,89, p = 0,52). Gerbang yang dibangun di atas sinyal itu ditutup.
+  Ini [C60](docs/id/04-hukum.md).
+- Model yang saat ini disajikan adalah `migancore:0.14`, dengan gerbang dalam moda bayangan. Dua
+  kandidat sesudahnya ditolak promosinya oleh gerbang mereka sendiri.
 
 ## Alat
 
