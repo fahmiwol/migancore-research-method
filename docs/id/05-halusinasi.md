@@ -24,6 +24,12 @@ jenis soal ke penyebab adalah sebuah pertimbangan, ukuran sampelnya kecil (12–
 labelnya berasal dari penilai yang tidak sempurna — jadi tabel ini deskriptif, bukan kausal. Tabel
 ini cukup untuk menunjukkan bahwa teorinya belum lengkap.
 
+> **Koreksi (23 September 2026).** "Model dasar mentah" di bagian ini adalah
+> **Qwen3-4B-Thinking-2507**, bukan base Instruct-2507 yang di-*fine-tune* proyek ini (lihat
+> studi kasus 1). Tabel itu menggambarkan model tersebut. Argumen yang ditopangnya — soal tak
+> terjawab berada di luar teori tiga penyebab — tidak bergantung pada varian mana yang
+> menghasilkannya, tetapi angkanya tidak boleh dikutip sebagai "model dasar kami".
+
 Sebuah model peninjau eksternal, yang diberi pertanyaan yang sama hanya dengan informasi publik,
 secara independen menyebut tiga penyebab itu *"judul debugging yang berguna tetapi taksonomi kausal
 yang lemah"*, dan memasukkan analogi saraf ke dalam daftar analogi yang menyesatkan **sebagai

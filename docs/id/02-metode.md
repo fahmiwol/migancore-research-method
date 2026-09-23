@@ -11,6 +11,10 @@ apakah aturan itu berlaku untuk pekerjaannya sendiri.
 - **Tanpa GPU lokal.** Pengukuran berjalan di CPU kelas laptop (Intel Core Ultra 5 115U,
   RAM 16 GB, disajikan dengan Ollama). Satu putaran 36 soal untuk model dasar dengan mode nalar
   bawaannya memakan **2,5–2,8 jam**. Lima putaran sama dengan satu hari kerja.
+
+  > **Koreksi (23 September 2026).** "Model dasar dengan mode nalar bawaannya" adalah
+  > **Qwen3-4B-Thinking-2507**; base Instruct-2507 yang di-*fine-tune* proyek ini tidak punya
+  > mode nalar. Waktu per putarannya akan dilaporkan bersama jangkar baru.
 - **GPU sewaan hanya sesekali** dan dibayar per jam, jadi run pelatihan berupa adapter LoRA
   kecil, dan run yang gagal berarti uang.
 - **Satu pendiri, agen AI sebagai staf.** Agen kehilangan konteks ketika percakapan dipadatkan

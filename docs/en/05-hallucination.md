@@ -24,6 +24,12 @@ not exist. The mapping from question type to cause is a judgement, sample sizes 
 (12–24 per type), and labels come from an imperfect scorer — so this table is descriptive,
 not causal. It was enough to show the theory was incomplete.
 
+> **Correction (23 September 2026).** "The raw base model" in this section is
+> **Qwen3-4B-Thinking-2507**, not the Instruct-2507 base the project fine-tunes from (see
+> case study 1). The table describes that model. The argument it supports — unanswerable
+> questions fall outside the three-cause theory — does not depend on which variant produced
+> it, but the numbers must not be quoted as "our base model".
+
 An external reviewer model, asked the same question with public information only,
 independently called the three causes *"useful debugging headings but a weak causal
 taxonomy"*, and listed the nerve analogy among analogies that are misleading **as a

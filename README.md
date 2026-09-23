@@ -86,6 +86,11 @@ verdicts are applied mechanically, not chosen.*
   46.4 %, 57.1 %, 60.7 % fabrication on questions that require abstention (mean
   **56.42 %**, 95 % CI 47.88–64.96). Over-refusal was **0 % in all five**: the base
   model does not refuse, it fabricates.
+
+  > **Correction (23 September 2026).** This anchor measured **Qwen3-4B-Thinking-2507**
+  > (Ollama tag `qwen3:4b`), a sibling of the model the project fine-tunes from
+  > (**Qwen3-4B-Instruct-2507**). The numbers stand for the Thinking variant; the actual
+  > base is being measured under a new pre-registration. Details: case study 1.
 - **The seed condition it was meant to feed turned out to be unfalsifiable.** The
   mechanical threshold admitted five of five measured models, so the condition was
   declared **undefined** for seven days rather than quietly relaxed, and replaced by a

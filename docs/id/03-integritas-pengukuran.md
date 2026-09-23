@@ -15,6 +15,11 @@ dihasilkannya tampak masuk akal. **Arah** kesalahannya penting: sebagian besar m
 **Gejala.** Sebelas upaya untuk mengukur model dasar mentah gagal. Kesimpulan yang ditulis saat
 itu adalah bahwa model dasar "bernalar terlalu lama untuk bisa diukur".
 
+> **Koreksi (23 September 2026).** "Model dasar mentah" di sini adalah
+> **Qwen3-4B-Thinking-2507** (lihat studi kasus 1). Varian itu memang bernalar panjang sebelum
+> menjawab, dan itulah sebabnya jawabannya mendekati batas 300 detik. Diagnosis bagian ini —
+> batas waktu klien, bukan modelnya — tidak terpengaruh.
+
 **Penyebab.** `fetch` bawaan Node (undici) secara default memiliki **batas waktu header sebesar
 300.000 ms**. Dengan `stream: false`, server model tidak mengirim apa pun sampai seluruh jawaban
 selesai dibuat, sehingga jawaban apa pun yang butuh lebih dari 300 detik memutus sambungannya

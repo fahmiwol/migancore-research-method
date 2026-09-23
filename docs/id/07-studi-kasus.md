@@ -18,6 +18,22 @@ masing-masing tanpa galat jaringan — **53,6 %, 64,3 %, 46,4 %, 57,1 %, dan 60,
 (rerata **56,42 %**, simpangan baku 6,88, selang kepercayaan 95 % **47,88–64,96**). Over-refusal
 **0 % di kelimanya**: model dasar tidak menolak, ia mengarang.
 
+> **Koreksi (23 September 2026).** Model yang diukur di sini adalah **Qwen3-4B-Thinking-2507**
+> — model yang disajikan Ollama dengan tag `qwen3:4b` — bukan model yang di-*fine-tune* proyek
+> ini, yaitu saudaranya **Qwen3-4B-Instruct-2507**. Pra-daftarnya tidak pernah mencatat varian
+> mana yang diukur. Uji asap eksperimen berikutnya menyingkapnya: diminta tidak bernalar, model
+> itu tetap menulis penalaran berbahasa Inggris ke dalam jawaban sampai batas token (16 dari 16
+> giliran), dan metadatanya menyebut variannya (`general.finetune: Thinking`). Kelima putaran
+> tetap sah sebagai pengukuran **varian Thinking**. Tiga kalimat di studi kasus ini salah
+> sebagaimana tertulis: *"model dasar mentah yang belum dilatih"*; *"model dasar tidak menolak,
+> ia mengarang"* (terbukti untuk varian Thinking saja — base yang sebenarnya belum diukur); dan
+> *"ambang penggantinya diturunkan dari base yang belum dilatih"* (diturunkan dari varian
+> Thinking). Perbandingan antar-model proyek sendiri (24,55 % vs 49,99 %) tidak bergantung pada
+> jangkar dan tetap berlaku. Apakah ambangnya perlu diubah adalah keputusan pemilik proyek, bukan
+> agen. Base yang sebenarnya kini diukur di bawah pra-daftar baru yang dikunci sebelum data: tiga
+> lengan berpasangan di satu mesin, supaya "bobot kami versus bobot awalnya" bisa dijawab pada
+> pengaturan sampling yang sama.
+
 **Prediksi yang ditulis sebelum putaran 2–5, dinilai sesudahnya:** MENGARANG di antara 45 % dan
 60 % — *benar pada reratanya*, tetapi **dua dari lima putaran jatuh di luar rentang itu**;
 over-refusal tetap mendekati nol — *benar*. Kedua paruh itu disebut dengan sengaja. Prediksi yang
@@ -38,6 +54,10 @@ bukan hasil sirkular: ambang penggantinya diturunkan dari base yang belum dilati
 satu model itu. Ia menopang satu klaim yang sempit dan bisa diperiksa — **pada sumbu kejujuran,
 empat bulan latihan menggerakkan model ke belakang** — dan tidak merambat ke sumbu lain (pemakaian
 alat, bahasa, nalar lokal) yang memang belum punya ambang.
+
+> **Koreksi (23 September 2026).** "Base yang belum dilatih" di paragraf ini adalah varian
+> Thinking — lihat koreksi di atas. Klaim tentang empat bulan latihan membandingkan model-model
+> proyek sendiri satu sama lain dan tidak terpengaruh.
 
 ## 2. Menguji klaim terbitan kami sendiri — pada hari yang sama
 

@@ -84,6 +84,11 @@ dan berkas hasil mentah di repo kerja privat; vonisnya diterapkan secara mekanis
 - **Jangkar model dasar (A3) SELESAI: 5 dari 5 putaran sah** — 53,6 %, 64,3 %, 46,4 %, 57,1 %,
   60,7 % MENGARANG pada soal yang menuntut abstensi (rerata **56,42 %**, CI 95 % 47,88–64,96).
   Over-refusal **0 % di kelimanya**: model dasar tidak menolak, ia mengarang.
+
+  > **Koreksi (23 September 2026).** Jangkar ini mengukur **Qwen3-4B-Thinking-2507** (tag
+  > Ollama `qwen3:4b`), saudara model yang di-*fine-tune* proyek ini
+  > (**Qwen3-4B-Instruct-2507**). Angkanya berlaku untuk varian Thinking; base yang sebenarnya
+  > sedang diukur di bawah pra-daftar baru. Rincian: studi kasus 1.
 - **Syarat bibit yang seharusnya disuapi jangkar itu ternyata tidak bisa digagalkan.** Ambang
   mekanisnya meloloskan lima dari lima model terukur, jadi syarat itu dinyatakan **TIDAK
   TERDEFINISI** selama tujuh hari alih-alih dilonggarkan diam-diam, lalu diganti aturan

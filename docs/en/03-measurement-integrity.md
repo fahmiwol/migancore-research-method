@@ -15,6 +15,11 @@ plausible. The **direction** of the errors matters: most of them flattered the p
 **Symptom.** Eleven attempts to measure the raw base model failed. The conclusion
 written at the time was that the base model "reasons too long to be measured".
 
+> **Correction (23 September 2026).** "The raw base model" here is
+> **Qwen3-4B-Thinking-2507** (see case study 1). That variant reasons at length before
+> answering by design, which is why its answers approached the 300-second limit. The
+> diagnosis in this section — a client timeout, not the model — is unaffected.
+
 **Cause.** Node's built-in `fetch` (undici) has a default **headers timeout of
 300,000 ms**. With `stream: false`, the model server sends nothing until the whole
 answer is generated, so any answer that needs more than 300 seconds severs its own

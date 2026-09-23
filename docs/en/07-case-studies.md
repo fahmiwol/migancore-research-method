@@ -19,6 +19,23 @@ network errors in each — **53.6 %, 64.3 %, 46.4 %, 57.1 % and 60.7 %** fabrica
 (mean **56.42 %**, standard deviation 6.88, 95 % confidence interval **47.88–64.96**).
 Over-refusal was **0 % in all five**: the base model does not refuse, it fabricates.
 
+> **Correction (23 September 2026).** The model measured here is **Qwen3-4B-Thinking-2507** —
+> the model Ollama serves under the tag `qwen3:4b` — not the model this project fine-tunes
+> from, which is its sibling **Qwen3-4B-Instruct-2507**. The pre-registration never recorded
+> which variant was measured. A smoke test for a later experiment exposed it: asked not to
+> reason, the served model still wrote English reasoning into its answers until it hit the
+> token limit (16 of 16 turns), and its metadata names the variant (`general.finetune:
+> Thinking`). The five rounds stand as measurements **of the Thinking variant**. Three
+> sentences in this case study are wrong as written: *"the raw, untrained base model"*;
+> *"the base model does not refuse, it fabricates"* (shown for the Thinking variant only —
+> the actual base has not been measured yet); and *"the replacement threshold is derived
+> from the untrained base"* (it was derived from the Thinking variant). The comparison
+> between the project's own models (24.55 % vs 49.99 %) does not depend on the anchor and
+> stands. Whether the threshold should change is the project owner's decision, not an
+> agent's. The actual base is now being measured under a new pre-registration, locked
+> before any data: three paired arms on one machine, so that "our weights versus the
+> weights we started from" can be answered at the same sampling settings.
+
 **Predictions written before rounds 2–5, scored after:** fabrication between 45 % and
 60 % — *correct on the mean*, though **two of five rounds fell outside the range**;
 over-refusal stays near zero — *correct*. Both halves are stated deliberately. A
@@ -39,6 +56,10 @@ fabrication. The currently served model, after four further months of training, 
 base, not from either model. It supports one narrow, verifiable claim — **on the honesty
 axis, four months of training moved the model backwards** — and does not extend to the
 other axes (tool use, language, local reasoning), which have no thresholds yet.
+
+> **Correction (23 September 2026).** "The untrained base" in this paragraph is the
+> Thinking variant — see the correction above. The claim about four months of training
+> compares the project's own models with each other and is unaffected.
 
 ## 2. Testing our own published claim — the same day
 

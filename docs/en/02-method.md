@@ -11,6 +11,10 @@ reader can judge whether the rule applies to their own work.
 - **No local GPU.** Measurement runs on a laptop-class CPU (Intel Core Ultra 5 115U,
   16 GB RAM, served with Ollama). One 36-question round of the base model with its
   default reasoning mode takes **2.5–2.8 hours**. Five rounds is a working day.
+
+  > **Correction (23 September 2026).** "The base model with its default reasoning mode" is
+  > **Qwen3-4B-Thinking-2507**; the Instruct-2507 base the project fine-tunes from has no
+  > reasoning mode. Its round time will be reported with the new anchor.
 - **Rented GPU is occasional** and paid per hour, so training runs are small LoRA
   adapters, and a failed run is money.
 - **One founder, AI agents as staff.** Agents lose context when a conversation is

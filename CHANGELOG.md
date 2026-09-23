@@ -2,6 +2,29 @@
 
 All notable changes to this repository. Versions follow semantic versioning.
 
+## [1.1.1] — 2026-09-23
+
+### Corrected
+
+- **The "base model" anchor measured a sibling of the base, not the base.** The model in
+  case study 1, in both Status sections and in chapters 02, 03 and 05 is
+  **Qwen3-4B-Thinking-2507** — what Ollama serves under the tag `qwen3:4b`. This project
+  fine-tunes from **Qwen3-4B-Instruct-2507**. The pre-registration never recorded which
+  variant was measured; a smoke test for a later experiment exposed it (asked not to
+  reason, the served model wrote English reasoning into 16 of 16 answers until the token
+  limit, and its metadata names the variant). Dated correction boxes were added in every
+  place the claim appears, in both languages; the original text stays.
+- What stands: the five rounds (mean 56.42 %) as measurements **of the Thinking variant**,
+  and the comparison between the project's own models (24.55 % vs 49.99 %), which does not
+  depend on the anchor. What does not stand as written: "the raw, untrained base model",
+  "the base model does not refuse, it fabricates" (shown for the Thinking variant only),
+  and "the replacement threshold is derived from the untrained base". The 1.1.0 entry below
+  repeats the first of these and is corrected by this one.
+- The actual base is being measured under a new pre-registration locked before any data:
+  three paired arms on one machine — the base as shipped, the base at the project's
+  serving sampler, and the project's model — so that the effect of the project's training
+  can be separated from the effect of sampling settings.
+
 ## [1.1.0] — 2026-09-23
 
 ### Added
