@@ -116,6 +116,13 @@ verdicts are applied mechanically, not chosen.*
   the model does write its uncertainty when fabricating (0.94), but it writes it on
   correct factual answers almost as often (0.89, p = 0.52). The gate built on that
   signal was closed. This is [C60](docs/en/04-laws.md).
+- **A single knowledge-boundary paragraph in a game character's persona** reduced
+  fabrication on questions outside the character's knowledge from **28.9 % to 8.9 %**
+  (90 paired questions, 95 % CI of the difference 10.0–30.0), with 3.3 % over-refusal on
+  answerable questions and first-token p95 **1.04 s** on a CPU-only machine — no probe, no
+  retraining. The scorer was blind-validated first; the first validation failed and was
+  redone on a fresh sample. Only the project's own model was measured, so whether the effect
+  belongs to the paragraph or to the weights is still open. Case study 10.
 - The currently served model is `migancore:0.14`, with the gate in shadow mode. Two
   later candidates were refused promotion by their own gates.
 

@@ -187,3 +187,69 @@ yang menjumlahkannya sebagai dua perbaikan terpisah sedang menghitung ganda.
 **Catatan tentang vonis.** Aturan yang terkunci diterapkan tanpa diubah; temuan varians itu tidak
 mengubah vonisnya, hanya rentang tempat angkanya boleh digeneralisasi. Memasang gerbang ke
 produksi tetap keputusan manusia — vonis mekanis adalah izin, bukan tindakan.
+
+---
+
+## 10. Satu paragraf yang mengajari karakter game berkata "aku belum tahu"
+
+**Situasi.** Karakter di dunia game 3D proyek ini menjawab dari dialog pendek yang
+dinaskahkan. Membiarkan model kecil menjawab pemain secara bebas mengundang kegagalan yang
+menjadi tema repositori ini: karakter mengarang harga, nama, dan tanggal yang tidak pernah
+diberitahukan kepadanya. Gerbang dari studi kasus 9 adalah alat yang salah di sini. Pada
+eksperimen latensi sebelumnya dengan karakter yang sama, probe-nya berjalan pada 96 % giliran,
+sekitar 8 detik per giliran di CPU; diuji luring, 14 dari 15 kalimat pemain yang khas —
+kebanyakan sapaan dan basa-basi — memicunya. Gerbang yang berukuran untuk tanya-jawab umum
+salah ukuran untuk percakapan. Pertanyaannya menjadi: bisakah
+persona itu sendiri membawa batasnya?
+
+**Rancangan.** Satu dial: satu paragraf batas pengetahuan ditambahkan di akhir persona tiap
+karakter (teks lengkapnya ada di pra-daftar). Selebihnya identik di kedua lengan: model 4B
+yang dilayankan proyek di mesin CPU saja, enam karakter dari game, soal yang sama dengan urutan
+yang sama, riwayat percakapan dikirim ulang persis sehingga awalan prompt yang tercache tetap
+stabil, dan tanpa probe. Per lengan: 90 soal di *luar* pengetahuan karakter (15 per karakter,
+masing-masing ditanya sekali), 90 giliran soal yang bisa dijawab (lima per karakter, masing-
+masing ditanya tiga kali), dan 60 sapaan — total 480 giliran. Mengarang dihitung oleh detektor
+berbasis aturan, **tanpa model penilai**: jawaban atas soal luar dihitung mengarang bila memuat
+paling sedikit satu nama, angka, atau waktu spesifik yang tidak dinyatakan sumber, kalimat
+pemain, atau identitas karakter. Ambang dikunci sebelum data: pasang hanya bila mengarang turun
+≥ 15,0 poin, batas bawah CI 95 % selisihnya > 5,0 poin, penolakan berlebih pada soal yang bisa
+dijawab ≤ 10 % dan paling banyak 5 poin di atas lengan polos, cakupan fakta yang bisa dijawab
+turun ≤ 10 poin, dan mengarang pada soal yang bisa dijawab naik ≤ 5 poin. Ambang latensi
+diambil dari literatur: token pertama p50 ≤ 2 dtk dan p95 ≤ 4 dtk. Ramalan dicatat: 0,45 pasang
+/ 0,25 belum cukup / 0,20 jangan pasang / 0,10 tidak perlu.
+
+**Validasi datang sebelum vonis — dan sekali gagal.** Detektor wajib sepakat dengan label tangan
+buta sebelum satu tingkat pun dihitung. Validasi pertama **gagal** pada satu kriteria:
+kesepakatan "tercakup" 0,975, tetapi kappa 0,655 terhadap ambang 0,70 — paradoks kappa pada
+prevalensi 39 dari 40, disebabkan daftar fakta kunci yang melewatkan "di atas layar" untuk soal
+yang kalimat sumbernya menyatakan persis itu. Amandemen bertanggal menambahkan empat fakta kunci
+dari kalimat sumber yang sama dan satu pola waktu ("setahun lalu"), lalu validasi **diulang
+pada sampel buta baru** (benih baru, nol tumpang tindih): recall entitas 1,00, presisi 0,909,
+kappa 0,942; tercakup dan menolak 1,00 dan 1,00. Baru sesudah itu kedua lengan dihitung. Satu
+salah-tangkap yang diketahui dibiarkan, tidak disetel ulang sesudah lulus; ia menghitung jawaban
+jujur yang menggemakan kata pemain sebagai karangan, jadi biasnya *merugikan* lengan batas.
+
+**Hasil.** Mengarang pada soal luar **28,9 % → 8,9 %**, selisih **20,0 poin** (CI 95 %
+**10,0–30,0**, bootstrap berkluster atas 90 soal). Abstensi jujur pada soal luar naik dari
+8,9 % ke 51,1 %. Pada soal yang bisa dijawab, penolakan berlebih **3,3 %** dan cakupan
+**96,7 %** (polos: 0 % dan 94,4 %); mengarang pada soal yang bisa dijawab juga turun
+(11,1 → 2,2 %). Semua syarat terpenuhi — vonis **pasang**, pada putaran pertama, tanpa
+perpanjangan. Dengan paragraf itu, latensi token pertama p50 **0,86 dtk** dan p95 **1,04 dtk**
+di mesin CPU saja, dengan nol galat dalam 480 giliran. Skor Brier ramalannya: **0,415** terhadap
+0,75 untuk tebakan seragam (mengarang) dan **0,045** terhadap 0,5 (latensi) — ramalan latensi
+pertama penulisnya yang mengalahkan tebakan seragam, sesudah dua yang lebih buruk (1,445 dan
+1,125).
+
+**Hubungannya dengan karya sebelumnya.** CHARM (Han dkk., arXiv 2609.01352) mengukur apakah
+model bermain peran menghormati batas pengetahuan karakter dalam format pilihan ganda di lima
+wilayah budaya, termasuk delapan karakter Indonesia, dan menemukan bahwa memunculkan kesadaran
+batas lebih dulu menaikkan kepatuhan dari 10,4 % ke 80,6 %. Hasil ini bertemu dengannya dari
+format yang berbeda (generasi bebas) dan model yang lebih kecil (4B). Ini bukan yang pertama,
+dan tidak disajikan sebagai yang pertama.
+
+**Yang tidak diklaim.** Hanya satu model yang diukur: model hasil *fine-tune* proyek sendiri.
+Apakah efeknya milik paragraf atau milik bobot model itu adalah pertanyaan tersendiri, kini
+sudah dipra-daftarkan dengan model dasarnya dalam run yang sama; sampai vonis itu ada, "satu
+paragraf memperbaiki karangan karakter" bukan klaim repositori ini. Kadar dasarnya juga penting
+(hukum C61): karakter-karakter ini mengarang pada 28,9 % soal luar, jauh di bawah ~52 % pada
+tanya-jawab umum di studi kasus 9, jadi besar efeknya tidak boleh dikutip tanpa kadar dasarnya.

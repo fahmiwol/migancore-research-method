@@ -114,6 +114,12 @@ dan berkas hasil mentah di repo kerja privat; vonisnya diterapkan secara mekanis
   menuliskan keraguannya saat mengarang (0,94), tetapi ia menuliskannya hampir sesering itu pada
   jawaban fakta yang BENAR (0,89, p = 0,52). Gerbang yang dibangun di atas sinyal itu ditutup.
   Ini [C60](docs/id/04-hukum.md).
+- **Satu paragraf batas pengetahuan di persona karakter game** menurunkan karangan pada soal di
+  luar pengetahuan karakter dari **28,9 % ke 8,9 %** (90 soal berpasangan, CI 95 % selisihnya
+  10,0–30,0), dengan penolakan berlebih 3,3 % pada soal yang bisa dijawab dan token pertama p95
+  **1,04 dtk** di mesin CPU saja — tanpa probe, tanpa latihan ulang. Penilainya divalidasi buta
+  lebih dulu; validasi pertama gagal dan diulang pada sampel baru. Hanya model proyek sendiri
+  yang diukur, jadi apakah efeknya milik paragraf atau milik bobot masih terbuka. Studi kasus 10.
 - Model yang saat ini disajikan adalah `migancore:0.14`, dengan gerbang dalam moda bayangan. Dua
   kandidat sesudahnya ditolak promosinya oleh gerbang mereka sendiri.
 

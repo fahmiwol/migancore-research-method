@@ -2,6 +2,21 @@
 
 All notable changes to this repository. Versions follow semantic versioning.
 
+## [1.2.0] — 2026-09-23
+
+### Added
+
+- **Case study 10 (EN and ID)** — a single knowledge-boundary paragraph appended to a game
+  character's persona, judged against thresholds locked before the data: fabrication on
+  questions outside the character's knowledge **28.9 % → 8.9 %** (difference 20.0 points,
+  95 % CI 10.0–30.0, 90 paired questions), over-refusal on answerable questions 3.3 %,
+  first-token p95 1.04 s on a CPU-only machine, no model judge. The scorer's first blind
+  validation **failed** on one criterion and was redone on a fresh sample under a dated
+  amendment; both are reported. Related work (CHARM, arXiv 2609.01352) is cited and the
+  result is framed as convergent, not first.
+- A Status bullet for the same result in both READMEs, including what is not yet known:
+  whether the effect belongs to the paragraph or to the fine-tuned weights.
+
 ## [1.1.1] — 2026-09-23
 
 ### Corrected

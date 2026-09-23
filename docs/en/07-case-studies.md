@@ -192,3 +192,70 @@ them as separate gains is counting twice.
 not alter the verdict, only the range over which the number may be generalised. Deploying
 the gate to production remained a human decision — a mechanical verdict is permission,
 not an action.
+
+---
+
+## 10. One paragraph that taught a game character to say "I don't know yet"
+
+**Situation.** Characters in the project's 3D game world answer from short scripted
+dialogue. Letting a small model answer players freely invites the failure this repository
+is about: a character inventing prices, names and dates it was never told. The gate from
+case study 9 was the wrong tool here. In an earlier latency experiment on the same
+characters, its probe ran on 96 % of turns at about 8 seconds each on a CPU; offline, 14 of
+15 typical player lines — mostly greetings and small talk — triggered it. A gate sized for
+general questions is the wrong size for conversation. The question became whether the persona itself could carry the boundary.
+
+**Design.** One dial: a knowledge-boundary paragraph appended to the end of each
+character's persona (the full text is in the pre-registration). Everything else identical
+in both arms: the project's served 4B model on a CPU-only machine, six characters from the
+game, the same questions in the same order, conversation history resent exactly so that
+the cached prompt prefix stays stable, and no probe. Per arm: 90 questions *outside* the
+characters' knowledge (15 per character, each asked once), 90 turns of answerable
+questions (five per character, each asked three times) and 60 greetings — 480 turns in
+total. Fabrication was counted by a rule-based detector, **no model judge**: an answer to
+an outside question fabricates if it contains at least one name, number or specific time
+that is not stated in the source, the player's sentence or the character's identity.
+Thresholds locked before any data: adopt only if fabrication drops by ≥ 15.0 points, the
+lower bound of the 95 % CI of the difference is > 5.0 points, over-refusal on answerable
+questions is ≤ 10 % and at most 5 points above plain, coverage of answerable facts drops by
+≤ 10 points, and fabrication on answerable questions rises by ≤ 5 points. Latency
+thresholds came from the literature: first token p50 ≤ 2 s and p95 ≤ 4 s. Forecast
+recorded: 0.45 adopt / 0.25 insufficient / 0.20 reject / 0.10 unnecessary.
+
+**Validation came before the verdict — and failed once.** The detector had to agree with
+blind hand labels before any rate was computed. The first validation **failed** one
+criterion: agreement on "covered" was 0.975, but kappa was 0.655 against a threshold of
+0.70 — a kappa paradox at 39 of 40 prevalence, caused by a key-fact list that missed "on
+top of the screen" for a question whose source sentence said exactly that. A dated
+amendment added four key facts taken from the same source sentences and one time pattern
+("a year ago"), and validation was **redone on a fresh blind sample** (new seed, zero
+overlap): entity recall 1.00, precision 0.909, kappa 0.942; covered and refused 1.00 and
+1.00. Only then were the arms computed. One known false positive was left in place rather
+than tuned away after passing; it counts an honest answer that echoes the player's word as
+fabrication, so it biases *against* the boundary arm.
+
+**Result.** Fabrication on outside questions **28.9 % → 8.9 %**, a difference of **20.0
+points** (95 % CI **10.0–30.0**, cluster bootstrap over the 90 questions). Honest
+abstention on outside questions rose from 8.9 % to 51.1 %. On answerable questions,
+over-refusal was **3.3 %** and coverage **96.7 %** (plain: 0 % and 94.4 %); fabrication on
+answerable questions also fell (11.1 → 2.2 %). Every condition was met — verdict **adopt**,
+on the first round, with no extension. With the paragraph, first-token latency was p50
+**0.86 s** and p95 **1.04 s** on a CPU-only machine, with zero errors in 480 turns. Brier
+scores of the forecasts: **0.415** against 0.75 for a uniform guess (fabrication) and
+**0.045** against 0.5 (latency) — the author's first latency forecast to beat a uniform
+guess, after two that did worse (1.445 and 1.125).
+
+**How it relates to prior work.** CHARM (Han et al., arXiv 2609.01352) measures whether
+role-playing models respect a character's knowledge boundary in a multiple-choice format
+across five cultural regions, including eight Indonesian characters, and finds that
+eliciting boundary awareness first raises compliance from 10.4 % to 80.6 %. This result
+converges from a different format (free generation) and a smaller model (4B). It is not a
+first, and it is not presented as one.
+
+**What is not claimed.** Only one model was measured: the project's own fine-tuned model.
+Whether the effect belongs to the paragraph or to that model's weights is a separate
+question, now pre-registered with the base model in the same run; until that verdict, "a
+paragraph fixes character fabrication" is not a claim this repository makes. The baseline
+matters too (law C61): these characters fabricated on 28.9 % of outside questions, far
+below the ~52 % of general question answering in case study 9, so the size of the effect
+should never be quoted without its baseline.
